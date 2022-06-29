@@ -223,48 +223,67 @@ footer{
 .section-service{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin: 20px;
-    padding: 5px;
+    gap: 80px;
+    justify-content: center;
+    margin: 40px;
 }
-
-.container__service{
-    background-color: #ffff;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: repeat(4fr 100px);
-    max-width: auto;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 0 6px rgb(0, 0, 0, .8);
-    transition: all 400ms ease;
+.cards{
+    position: relative;
+    width: 490px;
+    height: 350px;
 }
-
-.container__service:hover{
-    box-shadow: 10px 10px 30px rgb(0, 0, 0, .4);
-}
-
-.container__service h2{
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.container__service p{
-    font-size: 1.2em;
-}
-
-.img-service{
-    border-radius: 10px;
+    
+.cards .face{
+    position: absolute;
     width: 100%;
-    height: 300px;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.cards .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px black;
+}
+.cards .front img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-
-.card__img{
-    width: 50px;
+.cards .front h2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    color: #ffff;
+    background: rgba(0, 0, 0, 0.4);
     text-align: center;
-    margin-top: 10px;
 }
+.cards .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: #86dd53;
+    padding: 15px;
+    color: #ffff;
+    text-align: center;
+    box-shadow: 0 5px 10px black;
+}
+.cards .back h2{
+    margin-top: 30px;
+    text-decoration: underline; 
+}
+.cards .back p{
+    margin-top: 80px;
+    font-size: 15px;
+}
+.cards:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+.cards:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
 /*fin seccion servicios*/
 
 /*seccion talleres*/
